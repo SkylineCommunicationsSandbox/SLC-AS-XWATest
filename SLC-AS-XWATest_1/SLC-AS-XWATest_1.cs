@@ -1,3 +1,5 @@
+using Empower.Library.Room0;
+
 namespace SLC_AS_XWATest_1
 {
 	using System;
@@ -11,13 +13,15 @@ namespace SLC_AS_XWATest_1
 	/// </summary>
 	public class Script
 	{
-		/// <summary>
-		/// The script entry point.
-		/// </summary>
-		/// <param name="engine">Link with SLAutomation process.</param>
-		public void Run(IEngine engine)
-		{
-	        engine.GenerateInformation("Hello World!");
-		}
-	}
+        /// <summary>
+        /// The script entry point.
+        /// </summary>
+        /// <param name="engine">Link with SLAutomation process.</param>
+        public void Run(IEngine engine)
+        {
+            engine.GenerateInformation("Hello World!");
+            var order = OrderFactory.CreateOrder("2 number 9s, a number 6 with extra dip and a large soda");
+            order.Dispatch("Leroy Jenkins");
+        }
+    }
 }
